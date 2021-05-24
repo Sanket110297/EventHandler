@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  kafka:
+    default-topic: events #default topic to which the event is produced
+    producer:
+      bootstrap-servers: localhost:9092, localhost:9093, localhost:9094 #URL of running brokers
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      properties:
+        bootstrap.servers: localhost:9092, localhost:9093, localhost:9094
